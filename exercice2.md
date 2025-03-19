@@ -6,15 +6,35 @@ Pour cet exercice tu as besoin de la VM SRVLX01.
 # Partie 1 : Gestion des utilisateurs
 ## Q.2.1.1 Sur le serveur, créer un compte pour ton usage personnel.
 
+    sudo adduser wilder
+    #Attribuer des droits sudo
+    sudo usermod -aG sudo monutilisateur
+
 ## Q.2.1.2 Quelles préconisations proposes-tu concernant ce compte ?
+
+Préconisations:
+
+Mot de passe sécurisé : Long et complexe (Minimum 12 caractères   ,Mélanger majuscules, minuscules, chiffres et caractères spéciaux)
+Droits limités : Ne pas donner sudo si inutile
+Connexion SSH sécurisée : Utiliser une clé SSH
+Expiration du mot de passe : sudo chage -M 90 wilder
+Surveillance : Vérifier les logs avec journalctl -u sshd
 
 # Partie 2 : Configuration de SSH
 Un serveur SSH est lancé sur le port par défaut.
 Il est possible de s'y connecter avec n'importe quel compte, y compris le compte root.
+Oui , Tous les utilisateurs peuvent se connecter.
+NON, root est désactivé . par défaut PermitRootLogin non
 
 ## Q.2.2.1 Désactiver complètement l'accès à distance de l'utilisateur root.
 
+    sudo nano /etc/ssh/sshd_config
+    PermitRootLogin no
+
 ## Q.2.2.2 Autoriser l'accès à distance à ton compte personnel uniquement.
+
+    sudo nano /etc/ssh/sshd_config
+    AllowUsers wilder
 
 ## Q.2.2.3 Mettre en place une authentification par clé valide et désactiver l'authentification par mot de passe
 
