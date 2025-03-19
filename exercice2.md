@@ -1,5 +1,6 @@
 # CHECKPOINT3
 ##
+
 Manipulations pratiques sur VM Linux (temps estimé : 2h30)
 Pour cet exercice tu as besoin de la VM SRVLX01.
 
@@ -21,6 +22,7 @@ Expiration du mot de passe : sudo chage -M 90 wilder
 Surveillance : Vérifier les logs avec journalctl -u sshd
 
 # Partie 2 : Configuration de SSH
+
 Un serveur SSH est lancé sur le port par défaut.
 Il est possible de s'y connecter avec n'importe quel compte, y compris le compte root.
 Oui , Tous les utilisateurs peuvent se connecter.
